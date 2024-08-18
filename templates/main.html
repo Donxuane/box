@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Info Page - The Box</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="static/images/TheBox.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/TheBox.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="static/images/TheBox.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/styles.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">The Box</div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('index') }}">Login Page</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div id="banner">
+        <img src="static/images/banner.png" alt="Popup Image">
+        <button id="close-popup">Close</button>
+    </div>
+
+    <div class="container" id="home">
+        <div class="product-gallery">
+            <button class="prev">❮</button>
+            <img src="static/images/one.png" alt="Product Image" id="main-image">
+            <button class="next">❯</button>
+            <button id="box-styles">Box Styles</button>
+            <button id="show-items">Items</button>
+        </div>
+        <div class="product-details">
+            <h1>"Mystery Gifts For Your Moment"</h1>
+            <p class="price">$<span id="price">0.00</span></p>
+            <div class="tier-selection">
+                <label>Select Tier:</label>
+                <button class="tier-btn" id="basic" data-price="0.99">Basic ($0.99)</button>
+                <button class="tier-btn" id="premium" data-price="25.64">Premium ($25.64)</button>
+                <button class="tier-btn" id="vip" data-price="53.55">VIP ($53.55)</button>
+            </div>
+            <div class="gender-selection">
+                <label>For:</label>
+                <button class="gender-btn" id="male">Male</button>
+                <button class="gender-btn" id="female">Female</button>
+            </div>
+            <div class="customization">
+                <label>Customize:</label>
+                <button class="custom-btn" id="choose-color">Choose Color</button>
+                <button class="custom-btn" id="add-letter">Add Letter</button>
+                <button class="custom-btn" id="random-design">Random Design</button>
+                <div class="category-container">
+                    <button class="category-button">Select Category</button>
+                    <div class="category-options">
+                        <a href="#" data-value="Health and Wellness">Health and Wellness</a>
+                        <a href="#" data-value="Gadgets">Gadgets</a>
+                        <a href="#" data-value="Care Products (Men)">Care Products (Men)</a>
+                        <a href="#" data-value="Care Products (Women)">Care Products (Women)</a>
+                        <a href="#" data-value="Pet Products">Pet Products</a>
+                        <a href="#" data-value="Comfort Items">Comfort Items</a>
+                        <a href="#" data-value="Home and Outdoor">Home and Outdoor</a>
+                        <a href="#" data-value="Beauty Products and Accessories">Beauty Products and Accessories</a>
+                    </div>
+                </div>
+                <div class="age-slider">
+                    <label>Age:</label>
+                    <input title="age-slider" type="range" min="1" max="100" value="25" id="age-slider">
+                    <span id="age-value">25</span>
+                </div>
+                <input type="text" id="additional-details" placeholder="Enter additional details (optional)">
+            </div>
+            <div class="action-buttons">
+                <form class="main-form" action="{{ url_for('report_form') }}" method="GET">
+                    <button type="submit" class="btn" id="buy-now">BUY NOW</button>
+                </form>
+                <p class="free-shipping">Free Shipping Available</p>
+            </div>
+            <p class="service-info">
+                Once you purchase the product, we will send you an email with all the necessary information. 
+                You can track your order and contact our support team for any assistance.
+            </p>
+            <h3 class="sight">Make every purchase a delightful surprise!</h3>
+        </div>
+    </div>
+    <footer id="contact">
+        <div>Email: contact@thebox.com</div>
+        <div>Phone: +1 (800) 438-4438</div>
+    </footer>
+
+    <!-- Color Picker Popup -->
+    <div id="color-picker" class="popup">
+        <div class="color-options">
+            <div class="color-option" data-color="Any">Any</div>
+            <div class="color-option" data-color="Red"></div>
+            <div class="color-option" data-color="Blue"></div>
+            <div class="color-option" data-color="Green"></div>
+            <div class="color-option" data-color="Yellow"></div>
+            <div class="color-option" data-color="Purple"></div>
+            <div class="color-option" data-color="Orange"></div>
+            <div class="color-option" data-color="Pink"></div>
+            <div class="color-option" data-color="Teal"></div>
+            <div class="color-option" data-color="Brown"></div>
+            <div class="color-option" data-color="Grey"></div>
+            <div class="color-option" data-color="Gold"></div>
+            <div class="color-option" data-color="Silver"></div>
+            <div class="color-option" data-color="Black"></div>
+            <div class="color-option" data-color="White"></div>
+            <div class="color-option" data-color="Burgundy"></div>
+            <div class="color-option" data-color="Coral"></div>
+            <div class="color-option" data-color="Lavender"></div>
+            <div class="color-option" data-color="Mint"></div>
+            <div class="color-option" data-color="Navy"></div>
+            <div class="color-option" data-color="Olive"></div>
+            <div class="color-option" data-color="Peach"></div>
+            <div class="color-option" data-color="Turquoise"></div>
+        </div>
+    </div>
+
+    <!-- Letter Popup -->
+    <div id="letter-popup" class="popup">
+        <button id="close-letter-popup" class="close-btn">X</button>
+        <h2>Add a Letter</h2>
+        <input type="text" id="letter-content" placeholder="Write your letter or concept here...">
+        <button id="submit-letter">Save</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
