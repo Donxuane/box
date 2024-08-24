@@ -7,3 +7,8 @@
         {"src":"/(.*)", "dest": "app.py"}
     ]
 }
+{
+  "redirects": [
+    { "source": "/", "destination": "https://box-ashen.vercel.app/", "statusCode": 308 }
+  ]
+}
